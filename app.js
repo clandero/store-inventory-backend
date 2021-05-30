@@ -16,7 +16,7 @@ mongoose.connect(uri)
     console.log('Connected!');
 })
 .catch((error) => { 
-    return next(new HttpError('Connection failed', 500));
+    throw (new HttpError('Connection failed', 500));
 });
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);
