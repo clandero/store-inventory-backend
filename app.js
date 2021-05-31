@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const productsRoutes = require('./routes/products-routes');
 const usersRoutes = require('./routes/users-routes');
 const HttpError = require('./models/http-error');
+const cors = require('cors')
 
 const dotenv = require('dotenv');
 dotenv.config();
@@ -25,10 +26,15 @@ mongoose.set('useCreateIndex', true);
 mongoose.set('useUnifiedTopology', true);
 
 
-
-
+var corsOptions = {
+    origin: ['http://localhost:8080'],
+    credentials: true,
+    methods: ['GET', 'POST', 'OPTIONS', 'PUT', 'DELETE', 'PATCH'] 
+};
 
 const app = express();
+
+app.use(cors(corsOptions));
 
 app.use(bodyParser.json());
 
