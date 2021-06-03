@@ -98,7 +98,7 @@ const deleteProductById = async (req, res, next) => {
         const filter = {"_id":mongoose.Types.ObjectId(req.body.id)}
         console.log(filter);
         const result = await Product.findOneAndDelete(filter)
-        return res.status(201).json({product:result});
+        return res.status(200).json({product:result});
 
     } catch(error){
         return next(new HttpError('Could not delete product', 500));
