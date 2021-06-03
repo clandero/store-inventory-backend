@@ -95,13 +95,9 @@ const deleteProductById = async (req, res, next) => {
         // if(!errors.isEmpty()){
         //     throw new HttpError('Invalid input, please check your data.',422);
         // }
-        console.log(req.body)
-        console.log(req.body['source'])
-        console.log(req.body.source.id)
-        console.log(mongoose.Types.ObjectId(req.body.id))
-        //const filter = {"_id":mongoose.Types.ObjectId(req.body.id)}
-        //console.log(filter);
-        //const result = await Product.findOneAndDelete(filter)
+        const filter = {"_id":mongoose.Types.ObjectId(req.body.source.id)}
+        console.log(filter);
+        const result = await Product.findOneAndDelete(filter)
         return res.status(200).json({product:result});
 
     } catch(error){
