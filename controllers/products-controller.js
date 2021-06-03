@@ -93,6 +93,7 @@ const deleteProductById = async (req, res, next) => {
     try{
         const errors = validationResult(req);
         if(!errors.isEmpty()){
+            console.log(errors);
             throw new HttpError('Invalid input, please check your data.',422);
         }
         const filter = {"_id":mongoose.Types.ObjectId(req.body.id)}
