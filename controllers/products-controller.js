@@ -91,15 +91,15 @@ const updateProductByid = async (req, res, next) => {
 const deleteProductById = async (req, res, next) => {
     
     try{
-        // const errors = validationResult(req);
-        // if(!errors.isEmpty()){
-        //     throw new HttpError('Invalid input, please check your data.',422);
-        // }
-        console.log(req.body)
-        console.log(req.body.id)
-        console.log(mongoose.Types.ObjectId(req.body.id))
+        const errors = validationResult(req);
+        if(!errors.isEmpty()){
+            throw new HttpError('Invalid input, please check your data.',422);
+        }
+        // console.log(req.body)
+        // console.log(req.body.id)
+        // console.log(mongoose.Types.ObjectId(req.body.id))
         const filter = {"_id":mongoose.Types.ObjectId(req.body.id)}
-        console.log(filter);
+        // console.log(filter);
         const result = await Product.findOneAndDelete(filter)
         return res.status(200).json({product:result});
 

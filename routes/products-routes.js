@@ -30,9 +30,9 @@ router.patch('/',
 
 router.delete('/', 
     utils.authenticateJWT, 
-    // [
-    //     check('id').not().isEmpty()
-    // ],
+    [
+        check('id').not().isEmpty()
+    ],
     productsController.deleteProductById);
 
 module.exports = router;
