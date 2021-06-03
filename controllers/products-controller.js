@@ -101,6 +101,7 @@ const deleteProductById = async (req, res, next) => {
         return res.status(200).json({product:result});
 
     } catch(error){
+        console.log(error);
         return next(new HttpError('Could not delete product', 500));
     }
 }
