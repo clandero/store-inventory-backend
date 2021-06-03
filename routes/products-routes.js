@@ -12,8 +12,8 @@ router.get('/name/:pname', utils.authenticateJWT, productsController.getProducts
 router.post('/', 
     utils.authenticateJWT, 
     [
-        check('name').not().isEmpty().isString().isString(),
-        check('category').not().isEmpty().isArray(),
+        check('name').not().isEmpty().isString(),
+        //check('category').not().isEmpty().isArray(),
         check('price').not().isEmpty().isInt(),
         check('stock').not().isEmpty().isInt()
     ],
